@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viral POV Prompt Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-bolt"></i> Viral POV
+            </div>
+            <nav class="category-nav">
+                <h3>Categories</h3>
+                <ul id="category-list">
+                    <li class="active" data-cat="general">General / Viral</li>
+                    <li data-cat="firefighter">Firefighter POV</li>
+                    <li data-cat="construction">Construction</li>
+                    <li data-cat="police">Police / Bodycam</li>
+                    <li data-cat="survival">Survival / Disaster</li>
+                    <li data-cat="luxury">Luxury Lifestyle</li>
+                    <li data-cat="lifeguard">Lifeguard Rescue</li>
+                </ul>
+            </nav>
+            <div class="saved-projects">
+                <h3>Saved Projects <button id="clear-storage" title="Clear History"><i class="fa-solid fa-trash"></i></button></h3>
+                <ul id="save-list">
+                    <!-- Saved items will appear here -->
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="input-group">
+                    <label>Topic / Subject</label>
+                    <input type="text" id="topicInput" placeholder="e.g. House Fire, Ferrari Race, Bank Heist">
+                </div>
+                <button id="generateBtn" class="btn-primary">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Content
+                </button>
+            </header>
+
+            <div id="loading" class="hidden"><div class="spinner"></div> Generating...</div>
+
+            <!-- Results Dashboard -->
+            <div class="dashboard hidden" id="dashboard">
+                
+                <div class="tabs">
+                    <button class="tab-btn active" data-target="visual">Visual Prompts</button>
+                    <button class="tab-btn" data-target="script">Script & Story</button>
+                    <button class="tab-btn" data-target="seo">SEO & Thumbs</button>
+                </div>
+
+                <div class="content-area">
+                    
+                    <!-- Tab: Visual Prompts -->
+                    <div id="visual" class="tab-content active">
+                        <div class="section-header">
+                            <h4><i class="fa-solid fa-image"></i> Image Prompts (Midjourney/SD)</h4>
+                            <button class="copy-all" data-source="img-pro">Copy All Images</button>
+                        </div>
+                        <div class="grid-list" id="img-prompts"></div>
+
+                        <div class="section-header">
+                            <h4><i class="fa-solid fa-video"></i> Video Prompts (Kling/PixVerse/Hailuo)</h4>
+                            <button class="copy-all" data-source="vid-pro">Copy All Video</button>
+                        </div>
+                        <div class="grid-list" id="vid-prompts"></div>
+                    </div>
+
+                    <!-- Tab: Script -->
+                    <div id="script" class="tab-content">
+                        <div class="section-header">
+                            <h4><i class="fa-solid fa-fire"></i> Viral Hooks</h4>
+                        </div>
+                        <div class="grid-list" id="hooks"></div>
+
+                        <div class="section-header">
+                            <h4><i class="fa-solid fa-clapperboard"></i> Full Story Script</h4>
+                        </div>
+                        <div class="script-card" id="full-script"></div>
+
+                        <div class="section-header">
+                            <h4><i class="fa-solid fa-layer-group"></i> Scene Breakdown</h4>
+                        </div>
+                        <div class="script-card" id="scene-break"></div>
+                    </div>
+
+                    <!-- Tab: SEO -->
+                    <div id="seo" class="tab-content">
+                        <div class="section-header">
+                            <h4><i class="fa-solid fa-font"></i> YouTube Title</h4>
+                        </div>
+                        <div class="seo-card" id="yt-title"></div>
+
+                        <div class="section-header">
+                            <h4><i class="fa-solid fa-align-left"></i> YouTube Description</h4>
+                        </div>
+                        <div class="seo-card" id="yt-desc"></div>
+
+                        <div class="section-header">
+                            <h4><i class="fa-solid fa-hashtag"></i> Hashtags</h4>
+                        </div>
+                        <div class="seo-card" id="yt-tags"></div>
+
+                        <div class="section-header">
+                            <h4><i-icon-camera"></i> Thumbnail Prompt</h4>
+                        </div>
+                        <div class="seo-card" id="thumb-prompt"></div>
+                    </div>
+
+                </div>
+
+                <div class="action-bar">
+                    <button class="btn-secondary" id="saveProjectBtn"><i class="fa-solid fa-floppy-disk"></i> Save Project</button>
+                    <button class="btn-secondary" id="downloadBtn"><i class="fa-solid fa-download"></i> Download TXT</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
